@@ -24,7 +24,7 @@ public class WebGet
         else{
             System.out.println("getting / from horstmann.com");
             host = "horstmann.com";
-            resource = "/";
+            resource = " /";
         }//end of else
         //Opens socket
         final int HTTP_PORT = 80;
@@ -36,7 +36,7 @@ public class WebGet
             Scanner in = new Scanner(instream);
             PrintWriter out = new PrintWriter(outstream);
             //send command
-            String Command = "GET " + resource + "HTTP/1.1\n"
+            String Command = "HOST " + resource + " HTTP/1.1\n"
             + "Host: " + host + "\n\n";
             out.print(Command);
             out.flush();
