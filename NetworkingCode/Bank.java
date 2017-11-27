@@ -8,33 +8,27 @@
  */
 public class Bank
 {
-    /** description of instance variable x (add comment for each instance variable) */
-    private int x;
-
-    /**
-     * Default constructor for objects of class Bank
-     */
-    public Bank()
-    {
-        // initialise instance variables
-        x = 0;
+    private BankAccount[] accounts;
+    
+    public Bank(int size){
+        accounts = new BankAccount[size];
+        for(int i = 0; i < accounts.length; i++){
+            accounts[i] = new BankAccount();
+        }
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x+y;
+    
+    public void deposit(int accountNumber, double amount){
+        BankAccount account = accounts[accountNumber];
+        accounts.deposit(amount);
     }
-
+    
+    public void withdraw(int accountNumber, double amount){
+        BankAccount account = accounts[accountNumber];
+        account.withdraw(amount);
+    }
+    
+    public double getBalance(int accountNumber){
+        BankAccount account = accounts[accountNumber];
+        return account.getBalance();
+    }
 }
