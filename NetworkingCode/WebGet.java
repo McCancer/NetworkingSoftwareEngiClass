@@ -22,12 +22,12 @@ public class WebGet
             resource = args[1];
         }//end of if
         else{
-            System.out.println("getting / from horstmann.com");
-            host = "horstmann.com";
+            System.out.println("getting From a Local Host");
+            host = "localhost";
             resource = " /";
         }//end of else
         //Opens socket
-        final int HTTP_PORT = 80;
+        final int HTTP_PORT = 8080;
         try(Socket s = new Socket(host, HTTP_PORT)){
             //Get stream
             InputStream instream = s.getInputStream();
@@ -36,7 +36,7 @@ public class WebGet
             Scanner in = new Scanner(instream);
             PrintWriter out = new PrintWriter(outstream);
             //send command
-            String Command = "HOST " + resource + " HTTP/1.1\n"
+            String Command = "GET " + resource + " HTTP/1.1\n"
             + "Host: " + host + "\n\n";
             out.print(Command);
             out.flush();
