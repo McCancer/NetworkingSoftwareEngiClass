@@ -1,40 +1,42 @@
-
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Scanner;
+import java.io.InputStream;
+import java.io.IOException;
 
 /**
- * Write a description of class BankClient here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+
  */
 public class BankClient
 {
-    /** description of instance variable x (add comment for each instance variable) */
-    private int x;
-
-    /**
-     * Default constructor for objects of class BankClient
-     */
-    public BankClient()
-    {
-        // initialise instance variables
-        x = 0;
+    public static void main(String[] args) throws IOException{
+        final int SBAP_PORT = 8888;
+        try(Socket s = new Socket("localhost", SBAP_PORT)){
+            InputStream instream = s.getInputStream();
+            OutputStream outstream = s.getOutputStream();
+            Scanner in = new Scanner(instream);
+            PrintWriter out = new PrintWriter(outstream);
+            
+            String command = "Deposit 3 1000\n";
+            System.out.print("Sending: " + command);
+            out.print(command);
+            out.flush();
+            String response = in.nextLine();
+            System.out.println("Receiving: " + response);
+            
+            command = "WITHDRAW 3 500\n";
+            System.out.print("Sending: " + command);
+            out.print(command);
+            out.flush();
+            response = in.nextLine();
+            System.out.println("Receiving: " + response);
+            
+            command = "QUIT\n";
+            System.out.print("Sending: " + command);
+            out.print(command);
+            out.flush();
+            
+        }
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x+y;
-    }
-
 }

@@ -20,7 +20,7 @@ public class BankServer
         while(true){
             try(Socket s = server.accept()){
                 System.out.println("Client Connected");
-                BankService service = new BankService(S,bank);
+                BankService service = new BankService(s,bank);
                 Thread t = new Thread(service);
                 t.start();
             }

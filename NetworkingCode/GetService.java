@@ -14,7 +14,7 @@ public class GetService
     private Scanner in;
     private PrintWriter out;
     
-    public BankService(Socket aSocket){
+    public GetService(Socket aSocket){
         s = aSocket; 
     }
     
@@ -34,7 +34,14 @@ public class GetService
             if(!in.hasNext()){return;}
             String command = in.next();
             if(command.equals("Quit")){return;}
-            else{executeCommand(
+            else{executeCommand(command);}
         }
+     }
+     
+    public void executeCommand(String command){
+        if(command.equals("GET"){
+            
+        }
+        
     }
 }

@@ -19,7 +19,7 @@ public class Bank
     
     public void deposit(int accountNumber, double amount){
         BankAccount account = accounts[accountNumber];
-        accounts.deposit(amount);
+        account.deposit(amount);
     }
     
     public void withdraw(int accountNumber, double amount){

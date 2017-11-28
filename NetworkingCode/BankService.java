@@ -8,7 +8,7 @@ import java.util.Scanner;
 /**
 
  */
-public class BankService
+public class BankService implements Runnable
 {
     private Socket s;
     private Scanner in;
