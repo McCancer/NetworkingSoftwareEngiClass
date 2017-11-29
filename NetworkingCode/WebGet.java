@@ -36,7 +36,7 @@ public class WebGet
             Scanner in = new Scanner(instream);
             PrintWriter out = new PrintWriter(outstream);
             //send command
-            String Command = "GET " + resource + " HTTP/1.1\n"
+            String Command = "GET " + resource + " HTTP/Tester.html\n"
             + "Host: " + host + "\n\n";
             out.print(Command);
             out.flush();

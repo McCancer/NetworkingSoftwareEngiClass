@@ -42,7 +42,7 @@ public class GetService implements Runnable
     public void executeCommand(String command)throws FileNotFoundException{
         if(command.equals("GET")){
             String Return  = ""; 
-            String file = in.next();
+            String file = in.nextLine();
             File filename = new File(file);
             try(Scanner reader = new Scanner(filename)){
                 out.println("HTTP/1,1 200 OK");
