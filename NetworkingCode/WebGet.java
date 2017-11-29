@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 /**
  * Write a description of class WebGet here.
- * 
- * @author (your name) 
+ *
+ * @author (your name)
  * @version (a version number or a date)
  */
 public class WebGet
@@ -16,7 +16,7 @@ public class WebGet
     public static void main(String[] args)throws IOException
     {
         String host;
-        String resource; 
+        String resource;
         if(args.length == 2){
             host = args[0];
             resource = args[1];
@@ -24,7 +24,7 @@ public class WebGet
         else{
             System.out.println("getting From a Local Host");
             host = "localhost";
-            resource = " /";
+            resource = " Tester.txt";
         }//end of else
         //Opens socket
         final int HTTP_PORT = 8080;
@@ -36,8 +36,7 @@ public class WebGet
             Scanner in = new Scanner(instream);
             PrintWriter out = new PrintWriter(outstream);
             //send command
-            String Command = "GET " + resource + " HTTP/Tester.html\n"
-            + "Host: " + host + "\n\n";
+            String Command = "GET " + resource;
             out.print(Command);
             out.flush();
             //read server response
