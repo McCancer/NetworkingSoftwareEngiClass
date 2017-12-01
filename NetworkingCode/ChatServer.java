@@ -10,6 +10,7 @@ Chat Server
 public class ChatServer
 {
     public static void main(String[] args) throws IOException{
+       ChatRoom Room = new ChatRoom();
        final int CHAT_PORT = 8989;
        ServerSocket Server = new ServerSocket(CHAT_PORT);
        System.out.println("Server Created waiting for connection");
@@ -17,7 +18,8 @@ public class ChatServer
        while(true){
          try(Socket S = Server.accept()){
             System.out.println("Client Connected");
-            ChatService service = new ChatService(S);
+            ChatService service = new ChatService(S , Room);
+            Room.addClient(S);
             Thread t = new Thread(service);
             t.start();
             System.out.println("waiting for another Connection");

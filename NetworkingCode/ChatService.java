@@ -15,9 +15,11 @@ public class ChatService implements Runnable
     private Socket s;
     private Scanner in;
     private PrintWriter out;
+    private ChatRoom room;
     
-    public ChatService(Socket aSocket){
+    public ChatService(Socket aSocket, ChatRoom aroom){
         s = aSocket;
+        room = aroom;
     }
     
     public void run(){
@@ -29,5 +31,17 @@ public class ChatService implements Runnable
         catch(IOException exception){
             Exception.printStackTrace();
         }
+    }
+    
+    public void doService(){
+        while(true){
+            String command = "";
+            if(!in.hasNext()){command =}
+            if(in.hasNext()){}
+        }
+    }
+    
+    public void executeCommand(String command){
+        
     }
 }
