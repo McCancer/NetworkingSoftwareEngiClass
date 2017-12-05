@@ -16,6 +16,8 @@ public class ChatService implements Runnable
     private Scanner in;
     private PrintWriter out;
     private ChatRoom room;
+    private String name = "NoName";
+    private String message = "";
     
     public ChatService(Socket aSocket, ChatRoom aroom){
         s = aSocket;
@@ -29,19 +31,37 @@ public class ChatService implements Runnable
             doService();
         }
         catch(IOException exception){
-            Exception.printStackTrace();
+            System.out.println("Error code HoneyBee");
         }
     }
     
-    public void doService(){
+    public void doService() throws IOException{
         while(true){
             String command = "";
-            if(!in.hasNext()){command =}
-            if(in.hasNext()){}
+            if(!in.hasNext()){command = "";}
+            if(in.hasNext()){command = in.next();}
+            if(command.equals("quit")){
+                return;
+            }
+            executeCommand(command);
         }
     }
     
-    public void executeCommand(String command){
-        
+    public void executeCommand(String command) throws IOException { 
+        if(command.equals("send")){
+            message = name + ": " ;
+            while(in.hasNext()){
+                message = message + in.next(); 
+            }
+            room.sendMessage(message);
+            message = ""; 
+        }
+        else if(command.equals("Login")){
+           name = ""; 
+           while(in.hasNext()){
+            name = name + in.next();
+           }
+            
+        }
     }
 }
