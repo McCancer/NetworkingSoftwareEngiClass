@@ -20,8 +20,8 @@ public class ChatRoom
     public void sendMessage(String message) throws IOException{
         PrintWriter out;
         Socket temp; 
-        for(i = 0; i < Clients.length; i++){
-            temp = Clients[i];
+        for(int t = 0; t < Clients.length; t++){
+            temp = Clients[t];
             try{
                 out = new PrintWriter(temp.getOutputStream());
                 out.println(message);
