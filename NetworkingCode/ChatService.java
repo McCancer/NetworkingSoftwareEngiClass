@@ -14,7 +14,6 @@ public class ChatService implements Runnable
 {
     private Socket s;
     private Scanner in;
-    private PrintWriter out;
     private ChatRoom room;
     private String name = "NoName";
     private String message = "";
@@ -27,7 +26,6 @@ public class ChatService implements Runnable
     public void run(){
         try{
             in = new Scanner(s.getInputStream());
-            out = new PrintWriter(s.getOutputStream());
             doService();
         }
         catch(IOException exception){

@@ -9,7 +9,7 @@ import java.io.IOException;
  */
 public class ChatRoom
 {
-    private Socket[] Clients = new Socket[15];
+    private PrintWriter[] Clients = new PrintWriter[15];
     
     private int i = 0;
     
@@ -19,21 +19,16 @@ public class ChatRoom
     
     public void sendMessage(String message) throws IOException{
         PrintWriter out;
-        Socket temp; 
         for(int t = 0; t < Clients.length; t++){
-            temp = Clients[t];
-            try{
-                out = new PrintWriter(temp.getOutputStream());
+            out = Clients[t];
+    
                 out.println(message);
                 out.flush();
-            }
-            catch(IOException exception){
-                System.out.println("error sending message");
-            }
+
         }
     }
     
-    public void addClient(Socket b){
+    public void addClient(PrintWriter b){
         Clients[i] = b;
         i++;
     }

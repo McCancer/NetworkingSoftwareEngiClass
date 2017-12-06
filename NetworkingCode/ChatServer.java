@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-
+import java.io.PrintWriter;
 
 /**
 Matthew Kunzer
@@ -12,9 +12,10 @@ public class ChatServer
     public static void main(String[] args) throws IOException{
        ChatRoom Room = new ChatRoom();
        final int CHAT_PORT = 8989;
+       PrintWriter pass;
        ServerSocket Server = new ServerSocket(CHAT_PORT);
        System.out.println("Server Created waiting for connection");
-    
+       
        while(true){
          try(Socket S = Server.accept()){
             System.out.println("Client Connected");

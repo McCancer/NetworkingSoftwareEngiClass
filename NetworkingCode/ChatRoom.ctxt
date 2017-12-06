@@ -4,5 +4,5 @@ comment0.target=ChatRoom()
 comment1.params=message
 comment1.target=void\ sendMessage(java.lang.String)
 comment2.params=b
-comment2.target=void\ addClient(java.net.Socket)
+comment2.target=void\ addClient(java.io.PrintWriter)
 numComments=3
