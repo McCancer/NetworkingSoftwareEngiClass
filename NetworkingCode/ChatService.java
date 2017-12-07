@@ -13,19 +13,21 @@ import java.util.Scanner;
 public class ChatService implements Runnable
 {
     private Socket s;
+    private InputStream instream;
     private Scanner in;
     private ChatRoom room;
     private String name = "NoName";
     private String message = "";
     
-    public ChatService(Socket aSocket, ChatRoom aroom){
+    public ChatService(Socket aSocket, ChatRoom aroom) throws java.io.IOException{
         s = aSocket;
         room = aroom;
+        instream = s.getInputStream();
     }
     
     public void run(){
         try{
-            in = new Scanner(s.getInputStream());
+            in = new Scanner(instream);
             doService();
         }
         catch(IOException exception){

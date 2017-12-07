@@ -31,8 +31,8 @@ public class ChatClient
                 input = ClientInput.next();
                 if(in.hasNext()){
                     while(in.hasNext()){
-                     String data = in.next();
-                    System.out.print(data);
+                     String data = in.nextLine();
+                    System.out.println(data);
                    }
                 }
                 if(input.equals("S")){

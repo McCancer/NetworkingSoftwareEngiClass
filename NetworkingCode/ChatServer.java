@@ -20,7 +20,8 @@ public class ChatServer
          try(Socket S = Server.accept()){
             System.out.println("Client Connected");
             ChatService service = new ChatService(S , Room);
-            Room.addClient(S);
+            pass = new PrintWriter(S.getOutputStream());
+            Room.addClient(pass);
             Thread t = new Thread(service);
             t.start();
             System.out.println("waiting for another Connection");

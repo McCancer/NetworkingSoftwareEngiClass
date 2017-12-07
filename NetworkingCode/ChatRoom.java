@@ -21,10 +21,8 @@ public class ChatRoom
         PrintWriter out;
         for(int t = 0; t < Clients.length; t++){
             out = Clients[t];
-    
                 out.println(message);
                 out.flush();
-
         }
     }
     

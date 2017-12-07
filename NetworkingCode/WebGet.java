@@ -23,11 +23,11 @@ public class WebGet
         }//end of if
         else{
             System.out.println("getting From a Local Host");
-            host = "localhost";
-            resource = " Tester.txt";
+            host = "localhost"; //Enter website here
+            resource = " Tester.txt"; // /
         }//end of else
         //Opens socket
-        final int HTTP_PORT = 8080;
+        final int HTTP_PORT = 80;
         try(Socket s = new Socket(host, HTTP_PORT)){
             //Get stream
             InputStream instream = s.getInputStream();
