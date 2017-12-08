@@ -39,7 +39,8 @@ public class ChatService implements Runnable
         while(true){
             String command = "";
             if(!in.hasNext()){command = "";}
-            if(in.hasNext()){command = in.next();}
+            if(in.hasNext()){command = in.nextLine();
+            System.out.println("2");}
             if(command.equals("quit")){
                 return;
             }
@@ -51,7 +52,7 @@ public class ChatService implements Runnable
         if(command.equals("send")){
             message = name + ": " ;
             while(in.hasNext()){
-                message = message + in.next(); 
+                message = message + in.nextLine(); 
             }
             room.sendMessage(message);
             message = ""; 
@@ -59,7 +60,7 @@ public class ChatService implements Runnable
         else if(command.equals("Login")){
            name = ""; 
            while(in.hasNext()){
-            name = name + in.next();
+            name = name + in.nextLine();
            }
             
         }

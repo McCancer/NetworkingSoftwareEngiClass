@@ -18,11 +18,13 @@ public class ChatRoom
     }
     
     public void sendMessage(String message) throws IOException{
+        String output = message +"\n";
         PrintWriter out;
         for(int t = 0; t < Clients.length; t++){
             out = Clients[t];
-                out.println(message);
+                out.println(output);
                 out.flush();
+            out.close();
         }
     }
     
